@@ -1,0 +1,6 @@
+# IDE folders
+.idea/
+.vscode/
+
+# Generated content
+gen/
