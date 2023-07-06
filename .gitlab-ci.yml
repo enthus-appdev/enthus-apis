@@ -56,7 +56,6 @@ buf:push:
     entrypoint: [""]
   script:
     - buf build
-    - echo $BUF_LOGIN_TOKEN | buf registry login --username $BUF_LOGIN_USERNAME --token-stdin
     - buf push
   tags:
     - docker
