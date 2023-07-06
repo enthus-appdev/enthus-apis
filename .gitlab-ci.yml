@@ -59,7 +59,8 @@ buf:push:
     - buf push
   tags:
     - docker
-  needs: []
+  needs:
+    - lint
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"
   interruptible: true
