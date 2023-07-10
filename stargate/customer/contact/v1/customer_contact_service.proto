@@ -7,6 +7,9 @@ import "stargate/type/v1/uuid.proto";
 service CustomerContactService {
   rpc AcceptLatestTermsAndConditions (AcceptLatestTermsAndConditionsRequest) returns (AcceptLatestTermsAndConditionsResponse) {}
   rpc HasAcceptedLatestTermsAndConditions (HasAcceptedLatestTermsAndConditionsRequest) returns (HasAcceptedLatestTermsAndConditionsResponse) {}
+
+  // Updates adverting interests for a specific customer contact.
+  rpc UpdateAdvertisingInterests (UpdateAdvertisingInterestsRequest) returns (UpdateAdvertisingInterestsResponse) {}
 }
 
 message AcceptLatestTermsAndConditionsRequest {
@@ -22,3 +25,13 @@ message HasAcceptedLatestTermsAndConditionsRequest {
 message HasAcceptedLatestTermsAndConditionsResponse {
   bool accepted = 1;
 }
+
+message UpdateAdvertisingInterestsRequest {
+  // Unique identifier for customer contact.
+  stargate.type.v1.UUID contact_uuid = 1;
+  // List of unique identifier for customer contact advertising interests.
+  // Existing customer contact advertising interests will be replaced with the provided list.
+  repeated stargate.type.v1.UUID interest_uuid = 2;
+}
+
+message UpdateAdvertisingInterestsResponse {}

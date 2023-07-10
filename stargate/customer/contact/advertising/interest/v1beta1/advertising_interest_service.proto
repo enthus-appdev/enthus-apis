@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package stargate.customer.contact.advertising.interest.v1beta1;
+
+import "stargate/type/v1/localization.proto";
+import "stargate/type/v1/uuid.proto";
+
+service CustomerContactAdvertisingInterestService {
+  // Lists all possible customer contact advertising interests
+  rpc ListInterests (ListInterestsRequest) returns (stream ListInterestsResponse) {}
+}
+
+message ListInterestsRequest {}
+
+message ListInterestsResponse {
+  Interest interest = 1;
+}
+
+message Interest {
+  // Unique identifier for customer contact advertising interests.
+  stargate.type.v1.UUID interest_uuid = 1;
+  // Localization used for i18n translation.
+  stargate.type.v1.Localization localization = 2;
+}

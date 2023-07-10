@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package stargate.type.v1;
+
+message Localization {
+  string en = 1;
+  string de = 2;
+}
