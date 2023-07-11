@@ -8,6 +8,9 @@ service CustomerContactService {
   rpc AcceptLatestTermsAndConditions (AcceptLatestTermsAndConditionsRequest) returns (AcceptLatestTermsAndConditionsResponse) {}
   rpc HasAcceptedLatestTermsAndConditions (HasAcceptedLatestTermsAndConditionsRequest) returns (HasAcceptedLatestTermsAndConditionsResponse) {}
 
+  // Get adverting interests for a specific customer contact.
+  rpc GetAdvertisingInterests (GetAdvertisingInterestsRequest) returns (GetAdvertisingInterestsResponse) {}
+
   // Updates adverting interests for a specific customer contact.
   rpc UpdateAdvertisingInterests (UpdateAdvertisingInterestsRequest) returns (UpdateAdvertisingInterestsResponse) {}
 }
@@ -24,6 +27,16 @@ message HasAcceptedLatestTermsAndConditionsRequest {
 
 message HasAcceptedLatestTermsAndConditionsResponse {
   bool accepted = 1;
+}
+
+message GetAdvertisingInterestsRequest {
+  // Unique identifier for customer contact.
+  stargate.type.v1.UUID contact_uuid = 1;
+}
+
+message GetAdvertisingInterestsResponse {
+  // List of unique identifier for customer contact advertising interests currently present on the customer contact.
+  repeated stargate.type.v1.UUID interest_uuid = 1;
 }
 
 message UpdateAdvertisingInterestsRequest {
