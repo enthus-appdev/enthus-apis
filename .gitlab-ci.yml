@@ -23,7 +23,8 @@ breaking:
     name: bufbuild/buf:1.17.0
     entrypoint: [""]
   script:
-    - buf breaking --against '.git#branch=main'
+    - git pull origin main
+    - buf breaking --against '.git#branch=origin/main'
   tags:
     - docker
   needs: [ ]
