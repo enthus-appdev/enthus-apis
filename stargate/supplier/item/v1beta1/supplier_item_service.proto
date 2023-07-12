@@ -46,7 +46,7 @@ message ListItemsResponse {
   stargate.type.v1.UUID supplier_uuid = 1;
   // Unique identifier of item in external supplier system.
   string supplier_item_identifier = 2;
-  // Identifier for the item in Steps.
+  // Identifier for the STEPS item.
   string item_no = 3;
   // Price in Euro.
   double price = 4;
@@ -77,7 +77,7 @@ message UpdateItemRequest {
   stargate.type.v1.UUID supplier_uuid = 1;
   // Unique identifier of item in external supplier system.
   string supplier_item_identifier = 2;
-  // Identifier for the item in Steps.
+  // Identifier for the STEPS item.
   optional string item_no = 3;
   // Price in Euro.
   optional double price = 4;
