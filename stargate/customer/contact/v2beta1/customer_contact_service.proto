@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package stargate.customer.contact.v2;
+
+import "stargate/type/v1/uuid.proto";
+
+service CustomerContactService {
+  rpc AcceptLatestTermsAndConditions (AcceptLatestTermsAndConditionsRequest) returns (AcceptLatestTermsAndConditionsResponse) {}
+  rpc HasAcceptedLatestTermsAndConditions (HasAcceptedLatestTermsAndConditionsRequest) returns (HasAcceptedLatestTermsAndConditionsResponse) {}
+
+  // Get advertising interests for a specific customer contact.
+  rpc GetAdvertisingInterests (GetAdvertisingInterestsRequest) returns (GetAdvertisingInterestsResponse) {}
+
+  // Sets advertising interests for a specific customer contact.
+  rpc SetAdvertisingInterests (SetAdvertisingInterestsRequest) returns (SetAdvertisingInterestsResponse) {}
+}
+
+message AcceptLatestTermsAndConditionsRequest {
+  optional stargate.type.v1.UUID contact_uuid = 1;
+}
+
+message AcceptLatestTermsAndConditionsResponse {}
+
+message HasAcceptedLatestTermsAndConditionsRequest {
+  stargate.type.v1.UUID contact_uuid = 1;
+}
+
+message HasAcceptedLatestTermsAndConditionsResponse {
+  bool accepted = 1;
+}
+
+message GetAdvertisingInterestsRequest {
+  // Unique identifier for customer contact.
+  stargate.type.v1.UUID contact_uuid = 1;
+}
+
+message GetAdvertisingInterestsResponse {
+  // List of unique identifier for customer contact advertising interests currently present on the customer contact.
+  repeated stargate.type.v1.UUID interest_uuid = 1;
+}
+
+message SetAdvertisingInterestsRequest {
+  // Unique identifier for customer contact.
+  stargate.type.v1.UUID contact_uuid = 1;
+  // List of unique identifier for customer contact advertising interests.
+  // Existing customer contact advertising interests will be replaced with the provided list.
+  repeated stargate.type.v1.UUID interest_uuid = 2;
+}
+
+message SetAdvertisingInterestsResponse {}
