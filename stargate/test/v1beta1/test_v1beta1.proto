@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package stargate.test.v1beta1;
+
+import "stargate/type/v1/uuid.proto";
+import "buf/validate/validate.proto";
+
+service TestService {
+  rpc Test (TestRequest) returns (TestResponse) {}
+}
+
+message TestRequest {
+  string foo = 1 [(buf.validate.field).string.min_len = 1];
+  int64 bar = 2;
+  stargate.type.v1.UUID baz = 3 [(buf.validate.field).string.uuid = true];
+  optional bool bam = 4;
+}
+
+message TestResponse {
+  string foo = 1;
+  int64 bar = 2;
+  stargate.type.v1.UUID baz = 3 [(buf.validate.field).string.uuid = true];
+  optional bool bam = 4;
+}
