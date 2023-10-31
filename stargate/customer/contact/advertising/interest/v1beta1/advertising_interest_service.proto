@@ -4,6 +4,7 @@ package stargate.customer.contact.advertising.interest.v1beta1;
 
 import "stargate/type/v1/localization.proto";
 import "stargate/type/v1/uuid.proto";
+import "buf/validate/validate.proto";
 
 service CustomerContactAdvertisingInterestService {
   // Lists all possible customer contact advertising interests
@@ -18,7 +19,7 @@ message ListInterestsResponse {
 
 message Interest {
   // Unique identifier for customer contact advertising interests.
-  stargate.type.v1.UUID interest_uuid = 1;
+  stargate.type.v1.UUID interest_uuid = 1 [(buf.validate.field).required = true];
   // Localization used for i18n translation.
   stargate.type.v1.Localization localization = 2;
 }
