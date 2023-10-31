@@ -22,7 +22,7 @@ message AcceptLatestTermsAndConditionsRequest {
 message AcceptLatestTermsAndConditionsResponse {}
 
 message HasAcceptedLatestTermsAndConditionsRequest {
-  stargate.type.v1.UUID contact_uuid = 1;
+  stargate.type.v1.UUID contact_uuid = 1 [(buf.validate.field).required = true];
 }
 
 message HasAcceptedLatestTermsAndConditionsResponse {
@@ -31,7 +31,7 @@ message HasAcceptedLatestTermsAndConditionsResponse {
 
 message GetAdvertisingInterestsRequest {
   // Unique identifier for customer contact.
-  stargate.type.v1.UUID contact_uuid = 1;
+  stargate.type.v1.UUID contact_uuid = 1 [(buf.validate.field).required = true];
 }
 
 message GetAdvertisingInterestsResponse {
@@ -41,10 +41,10 @@ message GetAdvertisingInterestsResponse {
 
 message SetAdvertisingInterestsRequest {
   // Unique identifier for customer contact.
-  stargate.type.v1.UUID contact_uuid = 1;
+  stargate.type.v1.UUID contact_uuid = 1 [(buf.validate.field).required = true];
   // List of unique identifier for customer contact advertising interests.
   // Existing customer contact advertising interests will be replaced with the provided list.
-  repeated stargate.type.v1.UUID interest_uuid = 2;
+  repeated stargate.type.v1.UUID interest_uuid = 2 [(buf.validate.field).required = true];
 }
 
 message SetAdvertisingInterestsResponse {}

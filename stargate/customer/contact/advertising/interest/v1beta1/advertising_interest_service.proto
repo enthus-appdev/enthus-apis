@@ -18,7 +18,7 @@ message ListInterestsResponse {
 
 message Interest {
   // Unique identifier for customer contact advertising interests.
-  stargate.type.v1.UUID interest_uuid = 1;
+  stargate.type.v1.UUID interest_uuid = 1 [(buf.validate.field).required = true];
   // Localization used for i18n translation.
   stargate.type.v1.Localization localization = 2;
 }

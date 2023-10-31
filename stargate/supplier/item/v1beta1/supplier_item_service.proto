@@ -37,7 +37,7 @@ service SupplierItemService {
 // Request message for `SupplierItemService.ListItems`.
 message ListItemsRequest {
   // Unique identifier for supplier.
-  stargate.type.v1.UUID supplier_uuid = 1;
+  stargate.type.v1.UUID supplier_uuid = 1 [(buf.validate.field).required = true];
 }
 
 // Response message for `SupplierItemService.ListItems`.
@@ -57,11 +57,11 @@ message ListItemsResponse {
 // Request message for `SupplierItemService.CreateItem`.
 message CreateItemRequest {
   // Unique identifier for supplier.
-  stargate.type.v1.UUID supplier_uuid = 1;
+  stargate.type.v1.UUID supplier_uuid = 1 [(buf.validate.field).required = true];
   // Unique identifier of item in external supplier system.
-  string supplier_item_identifier = 2;
+  string supplier_item_identifier = 2 [(buf.validate.field).required = true];
   // Identifier for the STEPS item.
-  string item_no = 3;
+  string item_no = 3 [(buf.validate.field).required = true];
   // Price in Euro.
   double price = 4;
   // Available stock from supplier for this supplier item.
@@ -74,9 +74,9 @@ message CreateItemResponse {}
 // Request message for `SupplierItemService.UpdateItem`.
 message UpdateItemRequest {
   // Unique identifier for supplier.
-  stargate.type.v1.UUID supplier_uuid = 1;
+  stargate.type.v1.UUID supplier_uuid = 1 [(buf.validate.field).required = true];
   // Unique identifier of item in external supplier system.
-  string supplier_item_identifier = 2;
+  string supplier_item_identifier = 2 [(buf.validate.field).required = true];
   // Identifier for the STEPS item.
   optional string item_no = 3;
   // Price in Euro.
@@ -91,9 +91,9 @@ message UpdateItemResponse {}
 // Request message for `SupplierItemService.DeleteItem`.
 message DeleteItemRequest {
   // Unique identifier for supplier.
-  stargate.type.v1.UUID supplier_uuid = 1;
+  stargate.type.v1.UUID supplier_uuid = 1 [(buf.validate.field).required = true];
   // Identifies item provided from supplier.
-  string supplier_item_identifier = 2;
+  string supplier_item_identifier = 2 [(buf.validate.field).required = true];
 }
 
 // Response message for `SupplierItemService.DeleteItem`.
