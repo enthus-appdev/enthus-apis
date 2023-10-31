@@ -3,6 +3,7 @@ syntax = "proto3";
 package stargate.supplier.item.v1beta1;
 
 import "stargate/type/v1/uuid.proto";
+import "buf/validate/validate.proto";
 
 // Manages Supplier items.
 service SupplierItemService {

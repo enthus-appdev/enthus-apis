@@ -3,6 +3,7 @@ syntax = "proto3";
 package stargate.customer.contact.v2beta1;
 
 import "stargate/type/v1/uuid.proto";
+import "buf/validate/validate.proto";
 
 service CustomerContactService {
   rpc AcceptLatestTermsAndConditions (AcceptLatestTermsAndConditionsRequest) returns (AcceptLatestTermsAndConditionsResponse) {}
