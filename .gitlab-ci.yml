@@ -5,7 +5,7 @@ stages:
 lint:
   stage: lint
   image:
-    name: bufbuild/buf:1.17.0
+    name: bufbuild/buf:latest
     entrypoint: [""]
   script:
     - buf lint
@@ -20,7 +20,7 @@ lint:
 breaking:
   stage: lint
   image:
-    name: bufbuild/buf:1.17.0
+    name: bufbuild/buf:latest
     entrypoint: [""]
   script:
     - git pull origin main
@@ -33,27 +33,27 @@ breaking:
   interruptible: true
   timeout: 5m
 
-#generate:protobuf:
-#  stage: generate
-#  image:
-#    name: bufbuild/buf:1.17.0
-#    entrypoint: [""]
-#  script:
-#    - buf generate
-#  artifacts:
-#    paths:
-#      - gen/python
-#    expire_in: 1 week
-#  tags:
-#    - docker
-#  needs: []
-#  interruptible: true
-#  timeout: 15m
+generate:protobuf:
+  stage: generate
+  image:
+    name: bufbuild/buf:latest
+    entrypoint: [""]
+  script:
+    - buf generate
+  artifacts:
+    name: "generate-python-$CI_COMMIT_SHA"
+    paths:
+      - gen/python
+  tags:
+    - docker
+  needs: []
+  interruptible: true
+  timeout: 15m
 
 buf:push:
   stage: generate
   image:
-    name: bufbuild/buf:1.17.0
+    name: bufbuild/buf:latest
     entrypoint: [""]
   script:
     - buf build
