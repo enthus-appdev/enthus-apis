@@ -33,13 +33,13 @@ breaking:
   interruptible: true
   timeout: 5m
 
-generate:protobuf:
+generate:protobuf:python:
   stage: generate
   image:
     name: bufbuild/buf:latest
     entrypoint: [""]
   script:
-    - buf generate
+    - buf generate --include-imports
   artifacts:
     name: "generate-python-$CI_COMMIT_SHA"
     paths:
