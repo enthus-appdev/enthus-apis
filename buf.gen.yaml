@@ -6,5 +6,7 @@ managed:
     except:
       - buf.build/bufbuild/protovalidate
 plugins:
-  - plugin: buf.build/protocolbuffers/python:v21.9
+  - plugin: buf.build/grpc/python:v1.59.2
+    out: gen/python
+  - plugin: buf.build/protocolbuffers/python:v25.0
     out: gen/python
