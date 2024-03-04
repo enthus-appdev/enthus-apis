@@ -1,4 +1,4 @@
-version: v1beta1
+version: v1
 managed:
   enabled: true
   go_package_prefix:
@@ -6,7 +6,7 @@ managed:
     except:
       - buf.build/bufbuild/protovalidate
 plugins:
-  - plugin: buf.build/grpc/python:v1beta1.59.2
+  - plugin: buf.build/grpc/python:v1.59.2
     out: gen/python
   - plugin: buf.build/protocolbuffers/python:v25.0
     out: gen/python
@@ -14,11 +14,11 @@ plugins:
     out: gen/go
     opt:
       - paths=source_relative
-  - plugin: buf.build/bufbuild/validate-go:v1beta1.0.4
+  - plugin: buf.build/bufbuild/validate-go:v1.0.4
     out: gen/go
     opt:
       - paths=source_relative
-  - plugin: buf.build/grpc/go:v1beta1.3.0
+  - plugin: buf.build/grpc/go:v1.3.0
     out: gen/go
     opt:
       - paths=source_relative
