@@ -37,6 +37,8 @@ message ItemOptions {
   // Defines if the item is bound to a customer.
   optional bool is_customer_binding = 2;
   // Defines if the item follows an OPG.
+  // “Order Processing Guideline” or “OPG” means a document issued by HP 
+  // detailing a specific end-user customer deal or promotions for which HP grants Special Pricing.
   optional bool is_opg = 3;
   // ??
   optional bool is_preowned = 4;
@@ -58,17 +60,17 @@ message ItemOptions {
   optional bool use_contract = 12;
   // Defines if the item can be used in sales.
   optional bool use_sales = 13;
-  // Defines if the sales price will be fixed and can't be changed by user.
+  // Defines if the sales price is be fixed and can't be changed by user.
   optional bool has_fixed_sales_price = 14;
   // Defines if the item is getting resolved when added to a document.
   optional bool bill_of_material_dissolve = 15;
-  // Defines if the purchase price can be edited in any condition.
+  // Defines if the purchase price can always be edited, overriding any other conditions.
   optional bool force_editable_purchase_price = 16;
   // ????
   optional bool individual_price = 17;
   // Defines if the free text is hidden on purchase orders.
   optional bool free_text_not_on_purchase_order = 18;
-  // Defines if the item is bound to sets only.
+  // Defines if the item can only be used in sets.
   optional bool has_set_binding = 19;
   // Defines if the item is prohibited in sets and can only be added as a normal position.
   optional bool is_prohibited_in_set = 20;
@@ -78,23 +80,23 @@ message ItemOptions {
   optional bool is_offer_only = 22;
   // ??
   optional bool is_orderable_by_default = 23;
-  // Defines if the price is always visible for the user.
+  // Defines if the price is always visible to the user.
   optional bool price_is_always_visible = 24;
-  // Defines if the item is readonly in documents.
+  // Defines if the item is readonly in documents, i.e. cannot be edited.
   optional bool is_readonly = 25;
   // Defines if the item is shown as sold out on web shop.
   optional bool is_sold_out = 26;
   // Defines if the item is a top config.
   optional bool is_top_config = 27;
-  // Defines if the item can be sold without being on stock anymore.
+  // Defines if the item can be sold without being in stock anymore.
   optional bool is_negative_disposable = 28;
   // ???
   optional bool is_focus_product = 29;
   // Defines if the item is shown in web shop.
   optional bool is_web_shop = 30;
-  // Defines if the item is denied in the web shop.
+  // Defines if the item is NEVER shown in the web shop.
   optional bool shop_state_no_shop = 31;
-  // Defines if a price can be requested option is shown instead of the price on web shop.
+  // Defines if a "request for quotation" option is shown instead of a normal sales price in the web shop.
   optional bool shop_price_on_demand = 32;
   // Defines if the item is marked for check???
   optional bool shop_state_check = 33;
@@ -108,7 +110,7 @@ message ItemOptions {
   optional bool stock_option_no_order_number = 35;
   // Defines if the item can't be picked for picking.
   optional bool stock_option_no_picking = 36;
-  // Defines if the item is not RMA able.
+  // Defines if the item is not RMA-able.
   optional bool stock_option_no_rma = 37;
   // Defines if a serial number is required on stock in.
   optional bool stock_option_no_serial_number = 38;
