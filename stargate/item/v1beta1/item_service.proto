@@ -96,15 +96,25 @@ message ItemOptions {
   optional bool shop_state_no_shop = 31;
   // Defines if a price can be requested option is shown instead of the price on web shop.
   optional bool shop_price_on_demand = 32;
+  // Defines if the item is marked for check???
   optional bool shop_state_check = 33;
-  optional bool skip_property_sync = 34;
-  optional bool stock_option_no_order_number = 35;
-  optional bool stock_option_no_picking = 36;
-  optional bool stock_option_no_rma = 37;
-  optional bool stock_option_no_serial_number = 38;
-  optional bool stock_option_no_stocktaking = 39;
+  // Defines if the description will be used for web shop, instead of 1worldsync.
   optional bool sync_description_long = 40;
+  // Defines if the description will be forced for web shop, instead of 1worldsync.
   optional bool sync_force_description = 41;
+  // Defines if external properties are shown on the item.
+  optional bool skip_property_sync = 34;
+  // Defines if a order number is required on stock in.
+  optional bool stock_option_no_order_number = 35;
+  // Defines if the item can't be picked for picking.
+  optional bool stock_option_no_picking = 36;
+  // Defines if the item is not RMA able.
+  optional bool stock_option_no_rma = 37;
+  // Defines if a serial number is required on stock in.
+  optional bool stock_option_no_serial_number = 38;
+  // Defines if the item is listed in stock validation reports.
+  optional bool stock_option_no_stocktaking = 39;
+  // Defines if the item is unique per document when added by cross selling.
   optional bool is_unique_cross_selling_item = 42;
 }
 
