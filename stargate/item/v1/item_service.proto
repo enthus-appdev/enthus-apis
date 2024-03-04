@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package stargate.item.v1;
 
+import "stargate/type/v1/uuid.proto";
 import "buf/validate/validate.proto";
 
 
@@ -21,11 +22,11 @@ message Item {
   // Item description 1
   optional string description1 = 1;
   // Item type id or uuid?
-  optional int64 type_id = 2;
+  optional stargate.type.v1.UUID type_uuid = 2;
   // Item category id or name?
-  optional int64 category_id = 3;
+  optional stargate.type.v1.UUID category_uuid = 3;
   // Item vendor id or uuid or name?
-  optional int64 vendor_id = 4;
+  optional stargate.type.v1.UUID vendor_uuid = 4;
 
   optional string free_text = 5;
 }
