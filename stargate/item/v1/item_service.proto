@@ -19,60 +19,60 @@ message UpdateItemsRequest {
 
 message Item {
   // Item description 1
-  optional string item_description1 = 1;
+  optional string description1 = 1;
   // Item type id or uuid?
-  optional int64 item_type_id = 2;
+  optional int64 type_id = 2;
   // Item category id or name?
-  optional int64 item_category_id = 3;
+  optional int64 category_id = 3;
   // Item vendor id or uuid or name?
-  optional int64 item_vendor_id = 4;
+  optional int64 vendor_id = 4;
 
-  optional string item_free_text = 5;
+  optional string free_text = 5;
 }
 
 message ItemOptions {
-  optional bool item_is_bundle = 1;
-  optional bool item_is_customer_binding = 2;
-  optional bool item_is_opg = 3;
-  optional bool item_is_preowned = 4;
-  optional bool item_is_service = 5;
-  optional bool item_is_factory = 6;
-  optional bool item_is_factory_integrated = 7;
-  optional bool item_has_assembling_exclusion = 8;
-  optional bool item_is_highlighted_on_assembling_order = 9;
-  optional bool item_is_assembled_by_manufacturer = 10;
-  optional bool item_stock_option_no_statistic = 11;
-  optional bool item_use_contract = 12;
-  optional bool item_use_sales = 13;
-  optional bool item_has_fixed_sales_price = 14;
-  optional bool item_bill_of_material_dissolve = 15;
-  optional bool item_force_editable_purchase_price = 16;
-  optional bool item_individual_price = 17;
-  optional bool item_free_text_not_on_purchase_order = 18;
-  optional bool item_has_set_binding = 19;
-  optional bool item_is_prohibited_in_set = 20;
-  optional bool item_is_hidden_on_printed_document = 21;
-  optional bool item_is_offer_only = 22;
-  optional bool item_is_orderable_by_default = 23;
-  optional bool item_price_is_always_visible = 24;
-  optional bool item_is_readonly = 25;
-  optional bool item_is_sold_out = 26;
-  optional bool item_is_top_config = 27;
-  optional bool item_is_negative_disposable = 28;
-  optional bool item_is_focus_product = 29;
-  optional bool item_is_web_shop = 30;
-  optional bool item_shop_state_no_shop = 31;
-  optional bool item_shop_price_on_demand = 32;
-  optional bool item_shop_state_check = 33;
-  optional bool item_skip_property_sync = 34;
-  optional bool item_stock_option_no_order_number = 35;
-  optional bool item_stock_option_no_picking = 36;
-  optional bool item_stock_option_no_rma = 37;
-  optional bool item_stock_option_no_serial_number = 38;
-  optional bool item_stock_option_no_stocktaking = 39;
-  optional bool item_sync_description_long = 40;
-  optional bool item_sync_force_description = 41;
-  optional bool item_is_unique_cross_selling_item = 42;
+  optional bool is_bundle = 1;
+  optional bool is_customer_binding = 2;
+  optional bool is_opg = 3;
+  optional bool is_preowned = 4;
+  optional bool is_service = 5;
+  optional bool is_factory = 6;
+  optional bool is_factory_integrated = 7;
+  optional bool has_assembling_exclusion = 8;
+  optional bool is_highlighted_on_assembling_order = 9;
+  optional bool is_assembled_by_manufacturer = 10;
+  optional bool stock_option_no_statistic = 11;
+  optional bool use_contract = 12;
+  optional bool use_sales = 13;
+  optional bool has_fixed_sales_price = 14;
+  optional bool bill_of_material_dissolve = 15;
+  optional bool force_editable_purchase_price = 16;
+  optional bool individual_price = 17;
+  optional bool free_text_not_on_purchase_order = 18;
+  optional bool has_set_binding = 19;
+  optional bool is_prohibited_in_set = 20;
+  optional bool is_hidden_on_printed_document = 21;
+  optional bool is_offer_only = 22;
+  optional bool is_orderable_by_default = 23;
+  optional bool price_is_always_visible = 24;
+  optional bool is_readonly = 25;
+  optional bool is_sold_out = 26;
+  optional bool is_top_config = 27;
+  optional bool is_negative_disposable = 28;
+  optional bool is_focus_product = 29;
+  optional bool is_web_shop = 30;
+  optional bool shop_state_no_shop = 31;
+  optional bool shop_price_on_demand = 32;
+  optional bool shop_state_check = 33;
+  optional bool skip_property_sync = 34;
+  optional bool stock_option_no_order_number = 35;
+  optional bool stock_option_no_picking = 36;
+  optional bool stock_option_no_rma = 37;
+  optional bool stock_option_no_serial_number = 38;
+  optional bool stock_option_no_stocktaking = 39;
+  optional bool sync_description_long = 40;
+  optional bool sync_force_description = 41;
+  optional bool is_unique_cross_selling_item = 42;
 }
 
 message UpdateItemsResponse {
