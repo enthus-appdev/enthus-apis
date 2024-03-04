@@ -76,6 +76,8 @@ message ItemOptions {
   optional bool is_hidden_on_printed_document = 21;
   // Defines if the item can only be used in offers.
   optional bool is_offer_only = 22;
+  // ??
+  optional bool is_orderable_by_default = 23;
   // Defines if the price is always visible for the user.
   optional bool price_is_always_visible = 24;
   // Defines if the item is readonly in documents.
@@ -103,7 +105,7 @@ message ItemOptions {
   optional bool stock_option_no_stocktaking = 39;
   optional bool sync_description_long = 40;
   optional bool sync_force_description = 41;
-  optional bool is_unique_cross_selling_item = 23;
+  optional bool is_unique_cross_selling_item = 42;
 }
 
 message UpdateItemsResponse {
