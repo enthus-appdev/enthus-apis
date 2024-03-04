@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package stargate.item.v1;
+
+import "buf/validate/validate.proto";
+
+
+service ItemService {
+  rpc UpdateItems (UpdateItemsRequest) returns (UpdateItemsResponse) {}
+}
+
+message UpdateItemsRequest {
+  // Unique identifier to identify the item.
+  string item_no = 1 [(buf.validate.field).required = true];
+  // Item description 1
+  optional string item_description1 = 2;
+  // Item type id or uuid?
+  optional int64 item_type_id = 3;
+  // Item category id or name?
+  optional int64 item_category_id = 4;
+  // Item vendor id or uuid or name?
+  optional int64 item_vendor_id = 5;
+
+  optional bool item_is_bundle = 6;
+  optional bool item_is_customer_binding = 7;
+  optional bool item_is_opg = 8;
+  optional bool item_is_preowned = 9;
+  optional bool item_is_service = 10;
+  optional bool item_is_factory = 12;
+  optional bool item_is_factory_integrated = 13;
+  optional bool item_has_assembling_exclusion = 11;
+  optional bool item_is_highlighted_on_assembling_order = 29;
+  optional bool item_is_assembled_by_manufacturer = 15;
+  optional bool item_stock_option_no_statistic = 19;
+  optional bool item_use_contract = 20;
+  optional bool item_use_sales = 21;
+  optional bool item_has_fixed_sales_price = 14;
+  optional bool item_bill_of_material_dissolve = 22;
+  optional bool item_force_editable_purchase_price = 23;
+  optional bool item_individual_price = 24;
+  optional bool item_free_text_not_on_purchase_order = 25;
+  optional bool item_has_set_binding = 26;
+  optional bool item_is_prohibited_in_set = 27;
+  optional bool item_is_hidden_on_printed_document = 28;
+  optional bool item_is_offer_only = 30;
+  optional bool item_is_orderable_by_default = 31;
+  optional bool item_price_is_always_visible = 32;
+  optional bool item_is_readonly = 33;
+  optional bool item_is_sold_out = 34;
+  optional bool item_is_top_config = 35;
+  optional bool item_is_negative_disposable = 46;
+  optional bool item_is_focus_product = 47;
+  optional bool item_is_web_shop = 16;
+  optional bool item_shop_state_no_shop = 49;
+  optional bool item_shop_price_on_demand = 17;
+  optional bool item_shop_state_check = 18;
+  optional bool item_skip_property_sync = 48;
+  optional bool item_stock_option_no_order_number = 50;
+  optional bool item_stock_option_no_picking = 51;
+  optional bool item_stock_option_no_rma = 52;
+  optional bool item_stock_option_no_serial_number = 53;
+  optional bool item_stock_option_no_stocktaking = 54;
+  optional bool item_sync_description_long = 55;
+  optional bool item_sync_force_description = 56;
+  optional bool item_is_unique_cross_selling_item = 57;
+
+  optional string item_free_text = 58;
+}
+
+message UpdateItemsResponse {
+
+}
