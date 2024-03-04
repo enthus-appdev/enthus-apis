@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package stargate.item.v1;
+package stargate.item.v1beta1;
 
 import "stargate/type/v1/uuid.proto";
 import "buf/validate/validate.proto";
@@ -19,50 +19,80 @@ message UpdateItemsRequest {
 }
 
 message Item {
-  // Item description 1
+  // Item description 1.
   optional string description1 = 1;
-  // Item type id or uuid?
+  // Item type.
   optional stargate.type.v1.UUID type_uuid = 2;
-  // Item category id or name?
+  // Item category.
   optional stargate.type.v1.UUID category_uuid = 3;
-  // Item vendor id or uuid or name?
+  // Item vendor.
   optional stargate.type.v1.UUID vendor_uuid = 4;
-
+  // Item free text.
   optional string free_text = 5;
 }
 
 message ItemOptions {
+  // Defines if the item is a bundle (containing multiple items).
   optional bool is_bundle = 1;
+  // Defines if the item is bound to a customer.
   optional bool is_customer_binding = 2;
+  // Defines if the item follows an OPG.
   optional bool is_opg = 3;
+  // ??
   optional bool is_preowned = 4;
+  // Defines if the item is service bound.
   optional bool is_service = 5;
+  // Defines if the item is a factory item.
   optional bool is_factory = 6;
+  // Defines if the item is factory integrated by default.
   optional bool is_factory_integrated = 7;
+  // Defines if the item is excluded from assembling.
   optional bool has_assembling_exclusion = 8;
+  // Defines if the item is highlighted on the assembling order document.
   optional bool is_highlighted_on_assembling_order = 9;
+  // ???
   optional bool is_assembled_by_manufacturer = 10;
+  // Defines if the item is excluded from any statistics.
   optional bool stock_option_no_statistic = 11;
+  // Defines if the item can only be used in contracts?????
   optional bool use_contract = 12;
+  // Defines if the item can be used in sales.
   optional bool use_sales = 13;
+  // Defines if the sales price will be fixed and can't be changed by user.
   optional bool has_fixed_sales_price = 14;
+  // Defines if the item is getting resolved when added to a document.
   optional bool bill_of_material_dissolve = 15;
+  // Defines if the purchase price can be edited in any condition.
   optional bool force_editable_purchase_price = 16;
+  // ????
   optional bool individual_price = 17;
+  // Defines if the free text is hidden on purchase orders.
   optional bool free_text_not_on_purchase_order = 18;
+  // Defines if the item is bound to sets only.
   optional bool has_set_binding = 19;
+  // Defines if the item is prohibited in sets and can only be added as a normal position.
   optional bool is_prohibited_in_set = 20;
+  // Defines if the item is always hidden on all printed documents.
   optional bool is_hidden_on_printed_document = 21;
+  // Defines if the item can only be used in offers.
   optional bool is_offer_only = 22;
-  optional bool is_orderable_by_default = 23;
+  // Defines if the price is always visible for the user.
   optional bool price_is_always_visible = 24;
+  // Defines if the item is readonly in documents.
   optional bool is_readonly = 25;
+  // Defines if the item is shown as sold out on web shop.
   optional bool is_sold_out = 26;
+  // Defines if the item is a top config.
   optional bool is_top_config = 27;
+  // Defines if the item can be sold without being on stock anymore.
   optional bool is_negative_disposable = 28;
+  // ???
   optional bool is_focus_product = 29;
+  // Defines if the item is shown in web shop.
   optional bool is_web_shop = 30;
+  // Defines if the item is denied in the web shop.
   optional bool shop_state_no_shop = 31;
+  // Defines if a price can be requested option is shown instead of the price on web shop.
   optional bool shop_price_on_demand = 32;
   optional bool shop_state_check = 33;
   optional bool skip_property_sync = 34;
@@ -73,7 +103,7 @@ message ItemOptions {
   optional bool stock_option_no_stocktaking = 39;
   optional bool sync_description_long = 40;
   optional bool sync_force_description = 41;
-  optional bool is_unique_cross_selling_item = 42;
+  optional bool is_unique_cross_selling_item = 23;
 }
 
 message UpdateItemsResponse {
