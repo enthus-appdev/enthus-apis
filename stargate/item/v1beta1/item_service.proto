@@ -40,23 +40,23 @@ message ItemOptions {
   // “Order Processing Guideline” or “OPG” means a document issued by HP 
   // detailing a specific end-user customer deal or promotions for which HP grants Special Pricing.
   optional bool is_opg = 3;
-  // ??
+  // Defines if an item is second-hand.
   optional bool is_preowned = 4;
   // Defines if the item is service bound.
   optional bool is_service = 5;
   // Defines if the item is a factory item.
   optional bool is_factory = 6;
-  // Defines if the item is factory integrated by default.
+  // Defines if the item is factory integrated by default. ('%-L21%' / '%FIO%')
   optional bool is_factory_integrated = 7;
   // Defines if the item is excluded from assembling.
   optional bool has_assembling_exclusion = 8;
   // Defines if the item is highlighted on the assembling order document.
   optional bool is_highlighted_on_assembling_order = 9;
-  // ???
+  // Defines if the item is assembled by the manufacturer. ('%0D1%' / '%#B19%')
   optional bool is_assembled_by_manufacturer = 10;
   // Defines if the item is excluded from any statistics.
   optional bool stock_option_no_statistic = 11;
-  // Defines if the item can only be used in contracts?????
+  // Defines if the item can only be invoiced in contracts.
   optional bool use_contract = 12;
   // Defines if the item can be used in sales.
   optional bool use_sales = 13;
