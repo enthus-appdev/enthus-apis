@@ -91,7 +91,7 @@ message ItemOptions {
   optional bool is_top_config = 27;
   // Defines if the item can be sold without being in stock anymore.
   optional bool is_negative_disposable = 28;
-  // ???
+  // Defines if the item has special highlighting in offers and orders.
   optional bool is_focus_product = 29;
   // Defines if the item is shown in web shop.
   optional bool is_web_shop = 30;
