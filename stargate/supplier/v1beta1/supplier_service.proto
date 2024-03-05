@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package stargate.supplier.v1beta1;
+
+import "stargate/type/v1/uuid.proto";
+
+// Manages Supplier items.
+service SupplierItemService {
+  // Lists all suppliers.
+  rpc ListSuppliers (ListSuppliersRequest) returns (stream ListSuppliersResponse) {}
+}
+
+message ListSuppliersRequest {
+
+}
+
+message ListSuppliersResponse {
+  Supplier supplier = 1;
+}
+
+message Supplier {
+  // Unique identifier of the supplier.
+  stargate.type.v1.UUID uuid = 1;
+  // Name of the supplier.
+  string name = 2;
+}
