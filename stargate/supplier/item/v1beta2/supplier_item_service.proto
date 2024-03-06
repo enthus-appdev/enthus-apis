@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+package stargate.supplier.item.v1beta2;
+
+import "stargate/type/v1/uuid.proto";
+import "buf/validate/validate.proto";
+
+// Manages suppliers.
+service SupplierService {
+  // Lists all supplier items for the specified supplier.
+  // Required fields:
+  //
+  // * `supplier_uuid` - The UUID of the supplier.
+  rpc ListItems (ListItemsRequest) returns (stream ListItemsResponse) {}
+
+  // Creates a new supplier item for specific supplier.
+  // Required fields:
+  //
+  // * `item.supplier_uuid` - The UUID of the supplier.
+  // * `item.supplier_item_identifier` - Unique identifier of item in external supplier system.
+  rpc CreateItem (CreateItemRequest) returns (CreateItemResponse) {}
+
+  // Updates a specific supplier item.
+  // Required fields:
+  //
+  // * `item.supplier_uuid` - The UUID of the supplier.
+  // * `item.supplier_item_identifier` - Unique identifier of item in external supplier system.
+  rpc UpdateItem (UpdateItemRequest) returns (UpdateItemResponse) {}
+
+  // Deletes a specific supplier item.
+  // Required fields:
+  //
+  // * `supplier_uuid` - The UUID of the supplier.
+  // * `supplier_item_identifier` - Unique identifier of item in external supplier system.
+  rpc DeleteItem (DeleteItemRequest) returns (DeleteItemResponse) {}
+}
+
+// Request message for `SupplierItemService.ListItems`.
+message ListItemsRequest {
+  // Unique identifier for supplier.
+  stargate.type.v1.UUID supplier_uuid = 1 [(buf.validate.field).required = true];
+}
+
+// Response message for `SupplierItemService.ListItems`.
+message ListItemsResponse {
+  // Unique identifier for supplier.
+  stargate.type.v1.UUID supplier_uuid = 1;
+  // Unique identifier of item in external supplier system.
+  string supplier_item_identifier = 2;
+  // Identifier for the STEPS item.
+  string item_no = 3;
+  // Price in Euro.
+  double price = 4;
+  // Available stock from supplier for this supplier item.
+  int64 stock = 5;
+}
+
+// Request message for `SupplierItemService.CreateItem`.
+message CreateItemRequest {
+  // Unique identifier for supplier.
+  stargate.type.v1.UUID supplier_uuid = 1 [(buf.validate.field).required = true];
+  // Unique identifier of item in external supplier system.
+  string supplier_item_identifier = 2 [(buf.validate.field).required = true];
+  // Identifier for the STEPS item.
+  string item_no = 3 [(buf.validate.field).required = true];
+  // Price in Euro.
+  double price = 4;
+  // Available stock from supplier for this supplier item.
+  int64 stock = 5;
+}
+
+// Response message for `SupplierItemService.CreateItem`.
+message CreateItemResponse {}
+
+// Request message for `SupplierItemService.UpdateItem`.
+message UpdateItemRequest {
+  // Unique identifier for supplier.
+  stargate.type.v1.UUID supplier_uuid = 1 [(buf.validate.field).required = true];
+  // Unique identifier of item in external supplier system.
+  string supplier_item_identifier = 2 [(buf.validate.field).required = true];
+  // Identifier for the STEPS item.
+  optional string item_no = 3;
+  // Price in Euro.
+  optional double price = 4;
+  // Available stock from supplier for this supplier item.
+  optional int64 stock = 5;
+}
+
+// Response message for `SupplierItemService.UpdateItem`.
+message UpdateItemResponse {}
+
+// Request message for `SupplierItemService.DeleteItem`.
+message DeleteItemRequest {
+  // Unique identifier for supplier.
+  stargate.type.v1.UUID supplier_uuid = 1 [(buf.validate.field).required = true];
+  // Identifies item provided from supplier.
+  string supplier_item_identifier = 2 [(buf.validate.field).required = true];
+}
+
+// Response message for `SupplierItemService.DeleteItem`.
+message DeleteItemResponse {}
