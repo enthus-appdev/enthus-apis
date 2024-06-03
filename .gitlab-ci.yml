@@ -10,7 +10,7 @@ lint:
   script:
     - buf lint
   tags:
-    - docker
+    - gitlab-org-docker
   needs: [ ]
   rules:
     - if: $CI_PIPELINE_SOURCE == "push"
@@ -26,7 +26,7 @@ breaking:
     - git pull origin main
     - buf breaking --against '.git#branch=origin/main'
   tags:
-    - docker
+    - gitlab-org-docker
   needs: [ ]
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH != "main"
@@ -45,7 +45,7 @@ generate:protobuf:python:
     paths:
       - gen/python
   tags:
-    - docker
+    - gitlab-org-docker
   needs: []
   interruptible: true
   timeout: 15m
@@ -62,7 +62,7 @@ generate:protobuf:go:
     paths:
       - gen/go
   tags:
-    - docker
+    - gitlab-org-docker
   needs: []
   interruptible: true
   timeout: 15m
@@ -76,7 +76,7 @@ buf:push:
     - buf build
     - buf push
   tags:
-    - docker
+    - gitlab-org-docker
   needs:
     - lint
   rules:
