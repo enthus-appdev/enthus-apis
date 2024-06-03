@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package stargate.customer.billing.account.v1beta1;
+
+service CustomerBillingAccountService {
+  rpc ListBillingAccounts (ListBillingAccountsRequest) returns (stream ListBillingAccountsResponse) {}
+}
+
+message ListBillingAccountsRequest {
+}
+
+message ListBillingAccountsResponse {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  string type_description = 4;
+  string interval_description = 5;
+  int64 planned_minutes = 6;
+  int64 remaining_minutes = 7;
+  int64 external_system_id = 8;
+  string external_system_name = 9;
+  string external_system_reference = 10;
+  int64 customer_id = 11;
+  string customer_no = 12;
+  string customer_name = 13;
+  string order_no = 14;
+}
