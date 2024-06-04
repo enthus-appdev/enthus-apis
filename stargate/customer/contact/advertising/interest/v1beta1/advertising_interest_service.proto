@@ -7,6 +7,8 @@ import "stargate/type/v1/uuid.proto";
 import "buf/validate/validate.proto";
 
 service CustomerContactAdvertisingInterestService {
+  option deprecated = true;
+
   // Lists all possible customer contact advertising interests
   rpc ListInterests (ListInterestsRequest) returns (stream ListInterestsResponse) {}
 }
