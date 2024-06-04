@@ -6,6 +6,8 @@ import "stargate/type/v1/uuid.proto";
 import "buf/validate/validate.proto";
 
 service CustomerContactService {
+  option deprecated = true;
+
   rpc AcceptLatestTermsAndConditions (AcceptLatestTermsAndConditionsRequest) returns (AcceptLatestTermsAndConditionsResponse) {}
   rpc HasAcceptedLatestTermsAndConditions (HasAcceptedLatestTermsAndConditionsRequest) returns (HasAcceptedLatestTermsAndConditionsResponse) {}
 
