@@ -4,6 +4,7 @@ package stargate.customer.billing.account.v1beta1;
 
 service CustomerBillingAccountService {
   option deprecated = true;
+
   rpc ListBillingAccounts (ListBillingAccountsRequest) returns (stream ListBillingAccountsResponse) {}
 }
 
