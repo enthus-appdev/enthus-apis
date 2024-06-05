@@ -1,10 +1,8 @@
 syntax = "proto3";
 
-package stargate.customer.billing.account.v1beta2;
+package stargate.customer.billing.account.v1beta3;
 
 service CustomerBillingAccountService {
-  option deprecated = true;
-
   rpc ListBillingAccounts (ListBillingAccountsRequest) returns (stream ListBillingAccountsResponse) {}
 }
 
@@ -17,9 +15,9 @@ message ListBillingAccountsResponse {
   string description = 3;
   string type_description = 4;
   string interval_description = 5;
-  int64 interval_in_minutes = 14;
-  int64 planned_minutes = 6;
-  int64 remaining_minutes = 7;
+  double interval_in_minutes = 14;
+  double planned_minutes = 6;
+  double remaining_minutes = 7;
   string external_system_name = 8;
   string external_system_reference = 9;
   int64 customer_id = 10;
