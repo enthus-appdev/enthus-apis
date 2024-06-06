@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package stargate.user.v1beta1;
+
+service UserService {
+  rpc ListUsers (ListUsersRequest) returns (stream ListUsersResponse) {}
+}
+
+message ListUsersRequest {
+}
+
+message ListUsersResponse {
+  int64 id = 1;
+  string display_name = 2;
+  string email = 3;
+  string department = 4;
+  bool is_system = 5;
+}
