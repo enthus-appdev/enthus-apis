@@ -24,4 +24,5 @@ message ListBillingAccountsResponse {
   string customer_no = 11;
   string customer_name = 12;
   string order_no = 13;
+  string jira_asset_id = 15;
 }
