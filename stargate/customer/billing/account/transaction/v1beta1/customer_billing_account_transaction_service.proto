@@ -7,6 +7,7 @@ import "google/protobuf/timestamp.proto";
 service CustomerBillingAccountTransactionService {
   rpc ListBillingAccountTransactions (ListBillingAccountTransactionsRequest) returns (stream ListBillingAccountTransactionsResponse) {}
   rpc CreateBillingAccountTransaction (CreateBillingAccountTransactionRequest) returns (CreateBillingAccountTransactionResponse) {}
+  rpc DeleteBillingAccountTransaction (DeleteBillingAccountTransactionRequest) returns (DeleteBillingAccountTransactionResponse) {}
 }
 
 message ListBillingAccountTransactionsRequest {
@@ -47,4 +48,12 @@ message CreateBillingAccountTransactionRequest {
 
 message CreateBillingAccountTransactionResponse {
   int64 id = 1;
+}
+
+message DeleteBillingAccountTransactionRequest {
+  int64 id = 1;
+}
+
+message DeleteBillingAccountTransactionResponse {
+
 }
