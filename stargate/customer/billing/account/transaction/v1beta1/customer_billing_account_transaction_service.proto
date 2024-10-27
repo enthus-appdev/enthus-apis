@@ -6,6 +6,7 @@ import "google/protobuf/timestamp.proto";
 
 service CustomerBillingAccountTransactionService {
   rpc ListBillingAccountTransactions (ListBillingAccountTransactionsRequest) returns (stream ListBillingAccountTransactionsResponse) {}
+  rpc CreateBillingAccountTransaction (CreateBillingAccountTransactionRequest) returns (CreateBillingAccountTransactionResponse) {}
 }
 
 message ListBillingAccountTransactionsRequest {
@@ -27,4 +28,23 @@ message ListBillingAccountTransactionsResponse {
   string object_no = 12;
   google.protobuf.Timestamp inserted_at = 13;
   string inserted_by = 14;
+}
+
+message CreateBillingAccountTransactionRequest {
+  int64 account_id = 1;
+  string name = 2;
+  string description = 3;
+  string created_by = 4;
+  optional bool is_withdrawal = 5;
+  optional int64 state_id = 6;
+  optional int64 booked_minutes = 7;
+  optional int64 booked_euros = 8;
+  optional string information = 9;
+  int64 external_system_id = 10;
+  string external_system_reference = 11;
+  optional string service_voucher = 12;
+}
+
+message CreateBillingAccountTransactionResponse {
+  int64 id = 1;
 }
